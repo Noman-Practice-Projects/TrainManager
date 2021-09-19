@@ -1,4 +1,4 @@
-package com.topcoder.childhooddream.error;
+package com.topcoder.bullettrain.error;
 
 /**
  * The type Train not found exception.

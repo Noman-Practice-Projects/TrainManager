@@ -1,8 +1,8 @@
-package com.topcoder.childhooddream.service;
+package com.topcoder.bullettrain.service;
 
-import com.topcoder.childhooddream.error.TrainNotFoundException;
-import com.topcoder.childhooddream.model.Train;
-import com.topcoder.childhooddream.repository.TrainRepository;
+import com.topcoder.bullettrain.error.TrainNotFoundException;
+import com.topcoder.bullettrain.model.Train;
+import com.topcoder.bullettrain.repository.TrainRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,20 +32,19 @@ public class TrainServiceImpl implements TrainService {
 		return requiredTrain.get();
 	}
 	
-//	@Override
-//	public List<Train> getTrainsWithSharingTracks() {
-//		return trainRepository.findAll().stream().filter(Train::isSharingTracks).collect(Collectors.toList());
-//	}
-//
-//	@Override
-//	public List<Train> getTrainsWithAmenity(String amenity) {
-//		return null;
-//	}
-//
-//	@Override
-//	public void deleteTrain(long id) {
-//		Train trainToDelete = getById(id);
-//		trainRepository.delete(trainToDelete);
-//		trainRepository.save(trainToDelete);
-//	}
+	@Override
+	public List<Train> getTrainsWithSharingTracks() {
+		return trainRepository.findAll().stream().filter(Train::isSharingTracks).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<Train> getTrainsWithAmenities(List<String> amenities) {
+		return null;
+	}
+
+	@Override
+	public void deleteTrain(long id) {
+		Train trainToDelete = getById(id);
+		trainRepository.delete(trainToDelete);
+	}
 }

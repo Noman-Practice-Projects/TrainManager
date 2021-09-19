@@ -1,6 +1,6 @@
-package com.topcoder.childhooddream.error;
+package com.topcoder.bullettrain.error;
 
-import com.topcoder.childhooddream.dto.GenericResponse;
+import com.topcoder.bullettrain.dto.GenericResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

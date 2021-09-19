@@ -1,10 +1,10 @@
-package com.topcoder.childhooddream;
+package com.topcoder.bullettrain;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ChildhoodDreamApplicationTests {
+class BulletTrainTests {
 	
 	@Test
 	void contextLoads() {

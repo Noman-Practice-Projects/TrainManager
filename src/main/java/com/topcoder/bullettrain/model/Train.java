@@ -1,4 +1,4 @@
-package com.topcoder.childhooddream.model;
+package com.topcoder.bullettrain.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -18,7 +18,6 @@ import javax.persistence.*;
 public class Train {
 	
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	private String name;

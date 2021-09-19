@@ -1,4 +1,4 @@
-package com.topcoder.childhooddream.dto;
+package com.topcoder.bullettrain.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
