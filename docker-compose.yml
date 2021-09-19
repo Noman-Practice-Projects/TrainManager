@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: docker/web/Dockerfile
+    volumes:
+      - type: bind
+        source: target
+        target: /app
+    ports:
+      - "8080:8081"
+    depends_on:
+      - postgresdocker
+
+  postgresdocker:
+    build:
+      context: .
+      dockerfile: docker/db/Dockerfile
+    ports:
+      - "5432:5432"
