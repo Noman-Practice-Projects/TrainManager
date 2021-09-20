@@ -1,8 +1,8 @@
-package com.topcoder.bullettrain.service;
+package com.topcoder.trainmanager.service;
 
-import com.topcoder.bullettrain.error.TrainNotFoundException;
-import com.topcoder.bullettrain.model.Train;
-import com.topcoder.bullettrain.repository.TrainRepository;
+import com.topcoder.trainmanager.error.TrainNotFoundException;
+import com.topcoder.trainmanager.model.Train;
+import com.topcoder.trainmanager.repository.TrainRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,8 +1,8 @@
-package com.topcoder.bullettrain.controller;
+package com.topcoder.trainmanager.controller;
 
-import com.topcoder.bullettrain.dto.GenericResponse;
-import com.topcoder.bullettrain.model.Train;
-import com.topcoder.bullettrain.service.TrainService;
+import com.topcoder.trainmanager.dto.GenericResponse;
+import com.topcoder.trainmanager.model.Train;
+import com.topcoder.trainmanager.service.TrainService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

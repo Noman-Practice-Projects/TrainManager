@@ -1,6 +1,7 @@
-package com.topcoder.bullettrain.error;
+package com.topcoder.trainmanager.error;
 
-import com.topcoder.bullettrain.dto.GenericResponse;
+import com.topcoder.trainmanager.dto.GenericResponse;
+import lombok.NonNull;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class NoHandlerFoundExceptionHandler extends ResponseEntityExceptionHandler {
 	
 	@Override
-	protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+	protected @NonNull ResponseEntity<Object> handleNoHandlerFoundException(@NonNull NoHandlerFoundException ex, @NonNull HttpHeaders headers, @NonNull HttpStatus status, @NonNull WebRequest request) {
 		return new ResponseEntity<>(new GenericResponse("invalid endpoint", null), HttpStatus.METHOD_NOT_ALLOWED);
 	}
 }

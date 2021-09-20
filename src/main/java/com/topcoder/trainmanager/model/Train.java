@@ -1,4 +1,4 @@
-package com.topcoder.bullettrain.model;
+package com.topcoder.trainmanager.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

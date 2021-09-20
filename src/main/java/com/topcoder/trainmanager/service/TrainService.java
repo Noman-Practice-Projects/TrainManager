@@ -1,6 +1,6 @@
-package com.topcoder.bullettrain.service;
+package com.topcoder.trainmanager.service;
 
-import com.topcoder.bullettrain.model.Train;
+import com.topcoder.trainmanager.model.Train;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package com.topcoder.bullettrain.config;
+package com.topcoder.trainmanager.config;
 
-import com.topcoder.bullettrain.interceptor.GetAllTrainsWithFilterHandler;
+import com.topcoder.trainmanager.interceptor.GetAllTrainsWithFilterHandler;
 import lombok.NonNull;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

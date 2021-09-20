@@ -1,4 +1,4 @@
-package com.topcoder.bullettrain;
+package com.topcoder.trainmanager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

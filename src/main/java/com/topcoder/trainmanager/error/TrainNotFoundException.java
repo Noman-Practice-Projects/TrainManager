@@ -1,4 +1,4 @@
-package com.topcoder.bullettrain.error;
+package com.topcoder.trainmanager.error;
 
 /**
  * The type Train not found exception.

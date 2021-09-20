@@ -1,6 +1,6 @@
-package com.topcoder.bullettrain.error;
+package com.topcoder.trainmanager.error;
 
-import com.topcoder.bullettrain.dto.GenericResponse;
+import com.topcoder.trainmanager.dto.GenericResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

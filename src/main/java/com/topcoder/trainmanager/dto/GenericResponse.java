@@ -1,4 +1,4 @@
-package com.topcoder.bullettrain.dto;
+package com.topcoder.trainmanager.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

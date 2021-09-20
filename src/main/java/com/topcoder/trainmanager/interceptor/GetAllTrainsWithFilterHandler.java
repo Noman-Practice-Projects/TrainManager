@@ -1,4 +1,4 @@
-package com.topcoder.bullettrain.interceptor;
+package com.topcoder.trainmanager.interceptor;
 
 import lombok.NonNull;
 import org.slf4j.Logger;

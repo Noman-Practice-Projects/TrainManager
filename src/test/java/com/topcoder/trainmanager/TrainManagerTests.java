@@ -1,4 +1,4 @@
-package com.topcoder.bullettrain;
+package com.topcoder.trainmanager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
