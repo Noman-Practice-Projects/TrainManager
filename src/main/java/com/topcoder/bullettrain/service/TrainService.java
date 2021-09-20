@@ -12,7 +12,7 @@ public interface TrainService {
 	
 	List<Train> getTrainsWithSharingTracks();
 
-	List<Train> getTrainsWithAmenities(List<String> amenities);
+	List<Train> getTrainsWithAmenities(String amenities);
 
 	void deleteTrain(long id);
 }

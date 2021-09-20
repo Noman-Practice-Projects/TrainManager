@@ -48,13 +48,13 @@ public class TrainController {
 		return new ResponseEntity<>(trainsWithSharingTracks, HttpStatus.OK);
 	}
 	
-	@GetMapping ("/amenities")
-	public ResponseEntity<Object> getTrainsWithAmenity(@RequestParam (value = "keywords") List<String> amenities) {
-		List<Train> trains = trainService.getTrainsWithAmenities(amenities);
+	@GetMapping ("/amenity")
+	public ResponseEntity<Object> getTrainsWithAmenity(@RequestParam (value = "keyword") String amenity) {
+		List<Train> trains = trainService.getTrainsWithAmenities(amenity);
 		if (trains.size() > 0) {
 			return new ResponseEntity<>(trains, HttpStatus.OK);
 		}
-		return new ResponseEntity<>(new GenericResponse("no-trains-found", null), HttpStatus.OK);
+		return new ResponseEntity<>(new GenericResponse("train not found", null), HttpStatus.OK);
 	}
 	
 	@DeleteMapping ("/{id}")

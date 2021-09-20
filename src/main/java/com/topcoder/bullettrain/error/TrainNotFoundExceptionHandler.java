@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
  * The type Train exception handler.
  */
 @ControllerAdvice
-public class TrainExceptionHandler extends ResponseEntityExceptionHandler {
+public class TrainNotFoundExceptionHandler extends ResponseEntityExceptionHandler {
 	
 	/**
 	 * Custom handle not found response train.

@@ -5,7 +5,6 @@ import com.topcoder.bullettrain.model.Train;
 import com.topcoder.bullettrain.repository.TrainRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
@@ -40,8 +39,8 @@ public class TrainServiceImpl implements TrainService {
 	}
 	
 	@Override
-	public List<Train> getTrainsWithAmenities(List<String> amenities) {
-		return new ArrayList<>();
+	public List<Train> getTrainsWithAmenities(String amenity) {
+		return trainRepository.findAll().stream().filter(train -> train.getAmenities().contains(amenity)).collect(Collectors.toList());
 	}
 	
 	@Override
