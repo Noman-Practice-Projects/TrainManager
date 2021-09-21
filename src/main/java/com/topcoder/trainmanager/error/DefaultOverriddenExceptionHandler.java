@@ -14,10 +14,11 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
  * The type Train exception handler.
  */
 @ControllerAdvice
-public class NoHandlerFoundExceptionHandler extends ResponseEntityExceptionHandler {
+public class DefaultOverriddenExceptionHandler extends ResponseEntityExceptionHandler {
 	
 	@Override
 	protected @NonNull ResponseEntity<Object> handleNoHandlerFoundException(@NonNull NoHandlerFoundException ex, @NonNull HttpHeaders headers, @NonNull HttpStatus status, @NonNull WebRequest request) {
 		return new ResponseEntity<>(new GenericResponse("invalid endpoint", null), HttpStatus.METHOD_NOT_ALLOWED);
 	}
+	
 }

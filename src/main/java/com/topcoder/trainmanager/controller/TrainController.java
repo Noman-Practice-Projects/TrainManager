@@ -1,5 +1,6 @@
 package com.topcoder.trainmanager.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.topcoder.trainmanager.dto.GenericResponse;
 import com.topcoder.trainmanager.model.Train;
 import com.topcoder.trainmanager.service.TrainService;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * The type Train controller.
@@ -36,6 +38,12 @@ public class TrainController {
 		return new ResponseEntity<>(trains, HttpStatus.OK);
 	}
 	
+	@PostMapping ()
+	public ResponseEntity<GenericResponse> insertTrain(@RequestBody Map<String, Object> requestBody) {
+		trainService.insertTrain(requestBody);
+		return new ResponseEntity<>(new GenericResponse("new train added successfully", null), HttpStatus.CREATED);
+	}
+	
 	@GetMapping ("/{id}")
 	public ResponseEntity<Train> getTrainById(@PathVariable ("id") long id) {
 		Train train = trainService.getById(id);
@@ -55,6 +63,12 @@ public class TrainController {
 			return new ResponseEntity<>(trains, HttpStatus.OK);
 		}
 		return new ResponseEntity<>(new GenericResponse("train not found", null), HttpStatus.OK);
+	}
+	
+	@PutMapping ("/{id}")
+	public ResponseEntity<GenericResponse> updateTrainById(@PathVariable ("id") long id, @RequestBody Map<String, Object> requestBody) {
+		trainService.updateTrain(id, requestBody);
+		return new ResponseEntity<>(new GenericResponse("train edited successfully", null), HttpStatus.OK);
 	}
 	
 	@DeleteMapping ("/{id}")
