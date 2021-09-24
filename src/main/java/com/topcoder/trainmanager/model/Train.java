@@ -24,15 +24,12 @@ public class Train {
 	
 	@NotNull
 	@Id
-	@JsonProperty ("id")
 	private long id;
 	
 	@NotNull
-	@JsonProperty ("name")
 	private String name;
 	
 	@NotNull
-	@JsonProperty ("description")
 	private String description;
 	
 	@NotNull
@@ -64,6 +61,14 @@ public class Train {
 	@JsonProperty ("amenities")
 	private String amenities;
 	
+	public void setNonNullAttributesFromMap(Map<String, Object> updatedTrain) throws NoSuchFieldException, IllegalAccessException {
+		for (TrainFields key : TrainFields.values()) {
+			if (updatedTrain.containsKey(key.json)) {
+				getClass().getDeclaredField(key.name()).set(this, updatedTrain.get(key.json));
+			}
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "Train{" +
@@ -77,32 +82,5 @@ public class Train {
 				", trainFrequency='" + trainFrequency + '\'' +
 				", amenities='" + amenities + '\'' +
 				'}';
-	}
-	
-	public void setNonNullAttributesFromMap(Map<String, Object> updatedTrain) {
-		if (updatedTrain.containsKey("name")) {
-			this.setName((String) updatedTrain.get("name"));
-		}
-		if (updatedTrain.containsKey("description")) {
-			this.setDescription((String) updatedTrain.get("description"));
-		}
-		if (updatedTrain.containsKey("distance-between-stop")) {
-			this.setDistanceBetweenStop((String) updatedTrain.get("distance-between-stop"));
-		}
-		if (updatedTrain.containsKey("max-speed")) {
-			this.setMaxSpeed((String) updatedTrain.get("max-speed"));
-		}
-		if (updatedTrain.containsKey("sharing-tracks")) {
-			this.setSharingTracks((boolean) updatedTrain.get("sharing-tracks"));
-		}
-		if (updatedTrain.containsKey("grade-crossing")) {
-			this.setGradeCrossing((boolean) updatedTrain.get("grade-crossing"));
-		}
-		if (updatedTrain.containsKey("train-frequency")) {
-			this.setTrainFrequency((String) updatedTrain.get("train-frequency"));
-		}
-		if (updatedTrain.containsKey("amenities")) {
-			this.setAmenities((String) updatedTrain.get("amenities"));
-		}
 	}
 }
