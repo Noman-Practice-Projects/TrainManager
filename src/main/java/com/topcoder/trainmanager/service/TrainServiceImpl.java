@@ -33,9 +33,8 @@ public class TrainServiceImpl implements TrainService {
 		}
 	}
 	
-	@Override
-	public List<Train> getAll() {
-		return trainRepository.findAll();
+	public List<Train> getAll(Specification<Train> specification) {
+		return trainRepository.findAll(specification);
 	}
 	
 	@Override

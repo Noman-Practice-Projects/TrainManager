@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-/**
- * The type Train controller.
- */
+import static com.topcoder.trainmanager.specification.TrainSpecifications.hasAmenity;
+import static com.topcoder.trainmanager.specification.TrainSpecifications.isSharingTracks;
+import static org.springframework.data.jpa.domain.Specification.where;
+
 @RestController
 @RequestMapping ("/trains")
 public class TrainController {
@@ -42,6 +43,18 @@ public class TrainController {
 	public ResponseEntity<GenericResponse> insertTrain(@RequestBody Map<String, Object> requestBody) {
 		trainService.insertTrain(requestBody);
 		return new ResponseEntity<>(new GenericResponse("new train added successfully", null), HttpStatus.CREATED);
+	}
+	
+	/* ================================ READ ==================================== */
+	
+	@GetMapping ()
+	public ResponseEntity<Object> getAllTrains(@RequestParam (name = "amenities", required = false) String amenity) {
+		List<Train> trains = trainService.getAll(where(hasAmenity(amenity)));
+		if (trains.size() > 0) {
+			return new ResponseEntity<>(trains, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(new GenericResponse("train not found", null), HttpStatus.OK);
+		}
 	}
 	
 	@GetMapping ("/{id}")

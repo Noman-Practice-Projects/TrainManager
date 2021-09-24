@@ -9,7 +9,7 @@ public interface TrainService {
 	
 	void insertTrain(Map<String, Object> requestBody);
 	
-	List<Train> getAll();
+	List<Train> getAll(Specification<Train> specification);
 	
 	Train getById(long id);
 	
