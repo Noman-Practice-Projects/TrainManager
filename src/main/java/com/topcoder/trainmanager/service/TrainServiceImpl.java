@@ -6,6 +6,8 @@ import com.topcoder.trainmanager.error.TrainNotFoundException;
 import com.topcoder.trainmanager.error.TrainUpdateFailedException;
 import com.topcoder.trainmanager.model.Train;
 import com.topcoder.trainmanager.repository.TrainRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +39,10 @@ public class TrainServiceImpl implements TrainService {
 		return trainRepository.findAll(specification);
 	}
 	
+	public Page<Train> getAll(Specification<Train> specification, Pageable pageable) {
+		return trainRepository.findAll(specification, pageable);
+	}
+	
 	@Override
 	public Train getById(long id) {
 		AtomicReference<Train> requiredTrain = new AtomicReference<>();
@@ -59,7 +65,7 @@ public class TrainServiceImpl implements TrainService {
 			objectMapper.convertValue(requestBody, Train.class);
 			train.setNonNullAttributesFromMap(requestBody);
 			trainRepository.save(train);
-		} catch (RuntimeException ignored) {
+		} catch (RuntimeException | NoSuchFieldException | IllegalAccessException ignored) {
 			throw new TrainUpdateFailedException();
 		}
 	}
