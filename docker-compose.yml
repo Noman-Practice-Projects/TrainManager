@@ -7,7 +7,7 @@ services:
       dockerfile: docker/web/Dockerfile
     volumes:
       - type: bind
-        source: target
+        source: "P:/Competitive/SkillBuilder/TrainManager/target"
         target: /app
     ports:
       - "8080:8081"

@@ -1,7 +1,7 @@
 
-DROP TABLE IF EXISTS train;
+DROP TABLE IF EXISTS public.trains;
 
-CREATE TABLE trains (
+CREATE TABLE public.trains (
 	id serial NOT NULL,
 	"name" varchar(100) NOT NULL,
 	description varchar(1000) NULL,
