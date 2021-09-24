@@ -1,6 +1,7 @@
 package com.topcoder.trainmanager.service;
 
 import com.topcoder.trainmanager.model.Train;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
 import java.util.Map;
@@ -12,10 +13,6 @@ public interface TrainService {
 	List<Train> getAll(Specification<Train> specification);
 	
 	Train getById(long id);
-	
-	List<Train> getTrainsWithSharingTracks();
-	
-	List<Train> getTrainsWithAmenities(String amenities);
 	
 	void updateTrain(long id, Map<String, Object> requestBody);
 	

@@ -1,6 +1,5 @@
 package com.topcoder.trainmanager.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.topcoder.trainmanager.dto.GenericResponse;
 import com.topcoder.trainmanager.model.Train;
 import com.topcoder.trainmanager.service.TrainService;
@@ -19,25 +18,13 @@ import static org.springframework.data.jpa.domain.Specification.where;
 @RequestMapping ("/trains")
 public class TrainController {
 	
-	/**
-	 * The Train repository.
-	 */
 	TrainService trainService;
 	
 	public TrainController(TrainService trainService) {
 		this.trainService = trainService;
 	}
 	
-	/**
-	 * Gets all trains.
-	 *
-	 * @return the all trains
-	 */
-	@GetMapping ()
-	public ResponseEntity<List<Train>> getAllTrains() {
-		List<Train> trains = trainService.getAll();
-		return new ResponseEntity<>(trains, HttpStatus.OK);
-	}
+	/* ================================ CREATE ==================================== */
 	
 	@PostMapping ()
 	public ResponseEntity<GenericResponse> insertTrain(@RequestBody Map<String, Object> requestBody) {
@@ -65,24 +52,19 @@ public class TrainController {
 	
 	@GetMapping ("/sharing-tracks")
 	public ResponseEntity<List<Train>> getTrainsWithSharingTracks() {
-		List<Train> trainsWithSharingTracks = trainService.getTrainsWithSharingTracks();
+		List<Train> trainsWithSharingTracks = trainService.getAll(where(isSharingTracks(true)));
 		return new ResponseEntity<>(trainsWithSharingTracks, HttpStatus.OK);
 	}
 	
-	@GetMapping ("/amenity")
-	public ResponseEntity<Object> getTrainsWithAmenity(@RequestParam (value = "keyword") String amenity) {
-		List<Train> trains = trainService.getTrainsWithAmenities(amenity);
-		if (trains.size() > 0) {
-			return new ResponseEntity<>(trains, HttpStatus.OK);
-		}
-		return new ResponseEntity<>(new GenericResponse("train not found", null), HttpStatus.OK);
-	}
+	/* ================================ UPDATE ==================================== */
 	
 	@PutMapping ("/{id}")
 	public ResponseEntity<GenericResponse> updateTrainById(@PathVariable ("id") long id, @RequestBody Map<String, Object> requestBody) {
 		trainService.updateTrain(id, requestBody);
 		return new ResponseEntity<>(new GenericResponse("train edited successfully", null), HttpStatus.OK);
 	}
+	
+	/* ================================ DELETE ==================================== */
 	
 	@DeleteMapping ("/{id}")
 	public ResponseEntity<GenericResponse> deleteTrainById(@PathVariable ("id") long id) {
