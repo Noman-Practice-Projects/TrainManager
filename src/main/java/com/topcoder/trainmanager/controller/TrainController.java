@@ -49,6 +49,7 @@ public class TrainController {
 			@RequestParam (name = "page", defaultValue = "0") int page,
 			@RequestParam (name = "size", defaultValue = "3") int size
 	) {
+//		FIXME: Advanced requires amenities response without pagination
 		List<Order> orders = SortOrder.ConstructSortOrders(sorts);
 		Pageable pages = PageRequest.of(page, size, Sort.by(orders));
 		Page<Train> trainPage = trainService.getAll(where(hasAmenity(amenity)), pages);
